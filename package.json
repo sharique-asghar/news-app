@@ -1,0 +1,25 @@
+{
+  "name": "news-app",
+  "version": "1.0.0",
+  "description": "News Application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharique-asghar/news-app.git"
+  },
+  "author": "Sharique Asghar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharique-asghar/news-app/issues"
+  },
+  "homepage": "https://github.com/sharique-asghar/news-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
