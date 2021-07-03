@@ -19,7 +19,7 @@ module.exports = {
       } else {
         return {
           statusCode: 0,
-          statusMessage: defaultMessage || "Internal server error"
+          statusMessage: response.message || defaultMessage
         };
       }
     } catch (ex) {
