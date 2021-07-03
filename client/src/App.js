@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar";
-import NewsFeed from "./components/NewsFeed";
+import NewsFeedLayout from "./components/NewsFeedLayout";
 
 function App() {
   return (
     <>
       <Navbar />
-      <NewsFeed />
+      <NewsFeedLayout />
     </>
   );
 }
