@@ -3,20 +3,25 @@ const productionConfig = require('./prod');
 const stagingConfig = require('./test');
 const devConfig = require('./dev');
 require("dotenv").config();
+const {getCompleteUrlConfig} = require('../utils/helpers');
 
 const NODE_ENV = process.env.NODE_ENV;
+const BASE_URL = "https://newsapi.org";
 
-let configBuffer;
+let apiConfig;
 
 switch (NODE_ENV) {
    case 'production':
-      configBuffer = productionConfig;
+      apiConfig = productionConfig;
       break;
    case 'test':
-      configBuffer = stagingConfig;
+      apiConfig = stagingConfig;
       break;
    default:
-      configBuffer = devConfig;
+      apiConfig = devConfig;
 }
 
-module.exports = configBuffer;
+const config = getCompleteUrlConfig(BASE_URL, apiConfig);
+console.log("URL Config:", config);
+
+module.exports = config;

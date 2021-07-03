@@ -1,5 +1,5 @@
-const config = {
-    TOP_HEADLINES_API: "/v2/top-headlines"
+const devConfig = {
+    GET_TOP_HEADLINES: "/v2/top-headlines"
  };
  
- module.exports = config;
+ module.exports = devConfig;
