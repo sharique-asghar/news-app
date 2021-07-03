@@ -14,8 +14,11 @@ module.exports = {
   responseHandler: (response, error, defaultMessage) => {
     try {
       if (!error && response.status === 200) {
-        response.statusCode = 1;
-        return response.data;
+        const returnedResponse = {
+          statusCode: 1,
+          result: response.data
+        }
+        return returnedResponse;
       } else {
         return {
           statusCode: 0,

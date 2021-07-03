@@ -1,5 +1,4 @@
 import React from 'react';
-// import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Sidebar from './Sidebar';
 import NewsFeed from './NewsFeed';
@@ -23,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     [theme.breakpoints.up('sm')]: {
       justifyContent: "space-between",
+      padding: "0 5%"
     },
   }
 }));
