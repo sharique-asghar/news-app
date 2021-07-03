@@ -4,7 +4,11 @@
   "description": "News Application",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon server/index.js"
+    "start": "node server/index.js",
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server/index.js",
+    "client": "PORT=3001 npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
     "log4js": "^6.3.0"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.9"
   }
 }
