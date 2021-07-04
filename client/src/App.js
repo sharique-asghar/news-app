@@ -1,12 +1,16 @@
-import Navbar from "./components/Navbar";
-import NewsFeedLayout from "./components/NewsFeedLayout";
+import React from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import Home from "./components/Home";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <NewsFeedLayout />
-    </>
+    <BrowserRouter basename="/">
+      <ToastContainer autoClose={3000} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
