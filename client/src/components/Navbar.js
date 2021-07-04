@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar({searchValue, handleSearch, handleSave}) {
+export default function Navbar({searchValue, handleSearch}) {
   const classes = useStyles();
 
   return (
@@ -103,7 +103,7 @@ export default function Navbar({searchValue, handleSearch, handleSave}) {
               placeholder="Search…"
               value={searchValue}
               onChange={handleSearch}
-              onKeyPress={handleSave}
+              onKeyPress={handleSearch}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

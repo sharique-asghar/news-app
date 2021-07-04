@@ -9,17 +9,15 @@ const Home = () => {
   const handleSearchValue = (event) => {
     const value = event?.target?.value || "";
     setSearchValue(value);
-  };
-
-  const handleSearchSave = (event) => {
     if (event.key === 'Enter') {
-      setValueToSearch(event?.target?.value || "");
+      setValueToSearch(value);
+      setSearchValue("");
     }
-  }
+  };
 
   return (
     <>
-      <Navbar searchValue={searchValue} handleSearch={handleSearchValue} handleSave={handleSearchSave} />
+      <Navbar searchValue={searchValue} handleSearch={handleSearchValue} />
       <NewsFeedLayout searchValue={valueToSearch} newsType="anything" />
     </>
   )
