@@ -79,7 +79,10 @@ function NewsFeed(props) {
     <div className={classes.main}>
       {!showSkelton &&
         <>
-          <Typography variant="h6" component="h6" className={classes.title}>{title}</Typography>
+          <Typography variant="h6" component="h6" className={classes.title}>
+            {newsType === "anything" && <span>Search Value: {" "}</span>}
+            <span>{title}</span>
+          </Typography>
           <div className={classes.feedContainer}>
             {data?.length ? data.map((article) => (
               <NewsCard article={article} key={article.title} />
