@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const isProd = Boolean(process.env.NODE_ENV === "production");
+const isProd = process.env.NODE_ENV === "production";
 
 const newsController = require('./controllers/newsController');
 

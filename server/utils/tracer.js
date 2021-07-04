@@ -1,15 +1,10 @@
 const log4js = require('log4js');
 const errorTracer = log4js.getLogger('error');
-const isProd = Boolean(process.env.NODE_ENV === "production");
-
-const LOG_SEPARATOR = "\n===================================";
 
 module.exports = {
   trace: function (req, url, json, tracerType, error) {
     let tracer = this.getTracer(tracerType, error);
     try {
-      json.method = json.method || "GET";
-
       let output = "\n";
       output += `URL: ${decodeURI(url)} \n`;
       output += `Method: ${json.method} \n`;

@@ -3,7 +3,7 @@ const express = require("express");
 const routes = require('./routes');
 const log4js = require('log4js');
 
-const isProd = Boolean(process.env.NODE_ENV === "production");
+const isProd = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT || 8080;
 
 const app = express();
