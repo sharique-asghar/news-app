@@ -13,6 +13,10 @@ app.use(log4js.connectLogger(log4js.getLogger("http"), {
     level: 'auto'
 }));
 
+if (isProd) {
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
+}
+
 app.use('/', routes);
 
 app.listen(PORT, () => {

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const isProd = Boolean(process.env.NODE_ENV === "production");
 
 const newsController = require('./controllers/newsController');
 
@@ -9,6 +10,13 @@ router.get('/health-check', (req, res) => {
 
 router.get('/api/top-headlines', newsController.getTopHeadlines);
 router.get('/api/everything', newsController.getAnyNews);
+
+if (isProd) {
+  // All other GET requests not handled before will return our React app
+  router.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 module.exports = (req, res, next) => {
   router(req, res, next);
