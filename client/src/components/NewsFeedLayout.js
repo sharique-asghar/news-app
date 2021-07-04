@@ -29,8 +29,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NewsFeedLayout({searchValue}) {
+export default function NewsFeedLayout(props) {
   const classes = useStyles();
+  const { searchValue } = props;
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [category, setCategory] = useState("");
   const [newsType, setNewsType] = useState((searchValue && "anything") || "")
@@ -49,11 +50,23 @@ export default function NewsFeedLayout({searchValue}) {
     setNewsType("category");
   };
 
+  const sidebarProps = {
+    ...props,
+    selectedIndex,
+    handleCategoryClick
+  }
+
+  const newsProps = {
+    ...props,
+    newsType,
+    category
+  };
+
   return (
     <Container className={classes.root}>
       <div className={classes.pageContent}>
-        <Sidebar selectedIndex={selectedIndex} handleCategoryClick={handleCategoryClick} />
-        <NewsFeed searchValue={searchValue} newsType={newsType} category={category} />
+        <Sidebar {...sidebarProps} />
+        <NewsFeed {...newsProps} />
       </div>
     </Container>
   )

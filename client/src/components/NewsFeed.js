@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textTransform: "capitalize"
+  },
+  searchTitle: {
+    color: "#333"
   }
 }));
 
@@ -80,7 +83,7 @@ function NewsFeed(props) {
       {!showSkelton &&
         <>
           <Typography variant="h6" component="h6" className={classes.title}>
-            {newsType === "anything" && <span>Search Value: {" "}</span>}
+            {newsType === "anything" && <span className={classes.searchTitle}>Search Value: {" "}</span>}
             <span>{title}</span>
           </Typography>
           <div className={classes.feedContainer}>

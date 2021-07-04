@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar({searchValue, handleSearch}) {
+export default function Navbar({searchValue, handleSearch, handleSidebarOpening}) {
   const classes = useStyles();
 
   return (
@@ -88,6 +88,7 @@ export default function Navbar({searchValue, handleSearch}) {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={(e) => handleSidebarOpening(e, true)}
           >
             <MenuIcon />
           </IconButton>
