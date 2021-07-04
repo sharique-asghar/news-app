@@ -8,6 +8,7 @@ router.get('/health-check', (req, res) => {
 });
 
 router.get('/api/top-headlines', newsController.getTopHeadlines);
+router.get('/api/everything', newsController.getAnyNews);
 
 module.exports = (req, res, next) => {
   router(req, res, next);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import UiSkelton from '../common/ui/Skelton';
 import { makeStyles } from '@material-ui/core/styles';
-import { getTopHeadlines } from '../services/news';
+import { getAnyNews, getTopHeadlines } from '../services/news';
 import NewsCard from './NewsCard';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,15 +21,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function NewsFeed() {
+function NewsFeed(props) {
   const classes = useStyles();
   const [country, setCountry] = useState("gb");
   const [showSkelton, setShowSkelton] = useState(false);
   const [data, setData] = useState([])
+  const newsType = props.newsType || "headline";
 
   useEffect(() => {
     const getCountryTopHeadlines = async () => {
       try {
+        setShowSkelton(true);
         const params = {
           country,
         }
@@ -38,25 +40,51 @@ function NewsFeed() {
         setData(result.articles);
       } catch (err) {
         console.log(err.message);
+      } finally {
+        setShowSkelton(false);
       }
     };
 
-    getCountryTopHeadlines();
-  }, [country]);
+    const getEveryNews = async () => {
+      try {
+        setShowSkelton(true);
+        const params = {
+          q: props.searchValue,
+        }
+        const result = await getAnyNews(params);
+        console.log(result);
+        setData(result.articles);
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setShowSkelton(false);
+      }
+    }
+
+    if (newsType === "headline") {
+      getCountryTopHeadlines();
+    } else if (newsType === "anything" && props.searchValue) {
+      getEveryNews();
+    }
+  }, [country, newsType, props.searchValue]);
 
   return (
     <div className={classes.main}>
-      <Typography variant="h6" component="h6">Headlines</Typography>
-      <div className={classes.feedContainer}>
-        {data?.length ? data.map((article) => (
-          <NewsCard article={article} key={article.title} />
-        ))
-        :
-        <div>
-          Sorry, we weren't able to load your feed. Refresh, to try again.
-        </div>
+      {!showSkelton &&
+        <>
+          <Typography variant="h6" component="h6">Headlines</Typography>
+          <div className={classes.feedContainer}>
+            {data?.length ? data.map((article) => (
+              <NewsCard article={article} key={article.title} />
+            ))
+            :
+            <div>
+              Sorry, we weren't able to load your feed. Refresh, to try again.
+            </div>
+          }
+          </div>
+        </>
       }
-      </div>
       {showSkelton &&
         <UiSkelton
           type={showSkelton}

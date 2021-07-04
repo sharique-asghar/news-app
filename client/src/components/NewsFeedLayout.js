@@ -28,14 +28,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NewsFeedLayout() {
+export default function NewsFeedLayout({searchValue, newsType}) {
   const classes = useStyles();
 
   return (
     <Container className={classes.root}>
       <div className={classes.pageContent}>
         <Sidebar />
-        <NewsFeed />
+        <NewsFeed searchValue={searchValue} newsType={searchValue && newsType} />
       </div>
     </Container>
   )

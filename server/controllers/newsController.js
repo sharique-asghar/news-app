@@ -25,6 +25,25 @@ const newsController = {
         .send(responseHandler(response, err, "Error in fetching headlines"));
     }
   },
+  getAnyNews: async (req, res) => {
+    req.query = {
+      ...req.query,
+      apiKey: process.env.API_KEY
+    };
+
+    let url = encodeURI(config.GET_EVERYTHING);
+    let response = null;
+
+    try {
+      const options = buildOptions(req);
+      tracer.trace(req, url, options, TRACER_TYPE);
+      response = await axios.get(url, options);
+      res.status(200).send(responseHandler(response));
+    } catch (err) {
+      res.status(500)
+        .send(responseHandler(response, err, "Error in fetching searched news"));
+    }
+  },
 }
 
 module.exports = newsController;

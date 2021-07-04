@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({searchValue, handleSearch, handleSave}) {
   const classes = useStyles();
 
   return (
@@ -101,10 +101,14 @@ export default function Navbar() {
             </div>
             <InputBase
               placeholder="Search…"
+              value={searchValue}
+              onChange={handleSearch}
+              onKeyPress={handleSave}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              type="text"
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
