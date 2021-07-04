@@ -1,7 +1,19 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "news-app",
+  "version": "1.0.0",
+  "description": "News Application",
+  "main": "server/index.js",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharique-asghar/news-app.git"
+  },
+  "author": "Sharique Asghar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharique-asghar/news-app/issues"
+  },
+  "homepage": "https://github.com/sharique-asghar/news-app#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
