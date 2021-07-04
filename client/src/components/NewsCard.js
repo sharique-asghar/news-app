@@ -2,6 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { makeStyles } from '@material-ui/core/styles';
+import { timeSince } from '../utils/functions';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -73,7 +74,7 @@ function NewsCard({article}) {
           </div>
           <Breadcrumbs separator="|" aria-label="breadcrumb" className={classes.breadcrumbs}>
             <span>{article.source.name}</span>
-            <span>{article.publishedAt}</span>
+            <span>{timeSince(new Date(article.publishedAt))}</span>
           </Breadcrumbs>
         </div>
         <a href={article.url} className={classes.imageContainer} target="_blank" rel="noreferrer">
