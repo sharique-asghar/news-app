@@ -67,7 +67,7 @@ function NewsFeed(props) {
       }
     }
 
-    if (newsType === "headline") {
+    if (newsType === "headline" || newsType === "category") {
       getCountryTopHeadlines();
     } else if (newsType === "anything" && props.searchValue) {
       setTitle(props.searchValue);

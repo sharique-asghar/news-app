@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '@material-ui/core/Container';
 import Sidebar from './Sidebar';
 import NewsFeed from './NewsFeed';
 import { makeStyles } from '@material-ui/core/styles';
-import { sidebarCategoryList } from '../utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,29 +29,31 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NewsFeedLayout({searchValue, newsType}) {
+export default function NewsFeedLayout({searchValue}) {
   const classes = useStyles();
-  const [selectedIndex, setSelectedIndex] = React.useState(null);
-  const [category, setCategory] = React.useState("");
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [category, setCategory] = useState("");
+  const [newsType, setNewsType] = useState((searchValue && "anything") || "")
 
   useEffect(() => {
     if (searchValue) {
       setSelectedIndex(null);
       setCategory("");
+      setNewsType("anything");
     }
   }, [searchValue])
 
   const handleCategoryClick = (event, item) => {
     setSelectedIndex(item.id);
     setCategory(item.value);
-    console.log(item);
+    setNewsType("category");
   };
 
   return (
     <Container className={classes.root}>
       <div className={classes.pageContent}>
-        <Sidebar list={sidebarCategoryList} selectedIndex={selectedIndex} handleCategoryClick={handleCategoryClick} />
-        <NewsFeed searchValue={searchValue} newsType={searchValue && newsType} category={category} />
+        <Sidebar selectedIndex={selectedIndex} handleCategoryClick={handleCategoryClick} />
+        <NewsFeed searchValue={searchValue} newsType={newsType} category={category} />
       </div>
     </Container>
   )

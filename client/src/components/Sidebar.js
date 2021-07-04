@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Lists from "../common/ui/Lists";
+import { sidebarCategoryList } from '../utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   sidebar: {
@@ -17,9 +18,14 @@ const useStyles = makeStyles((theme) => ({
 
 function Sidebar(props) {
   const classes = useStyles();
+  const listProps = {
+    ...props,
+    list: sidebarCategoryList.category,
+    title: "Category"
+  }
   return (
     <div className={classes.sidebar}>
-      <Lists {...props} />
+      <Lists {...listProps} />
     </div>
   )
 }

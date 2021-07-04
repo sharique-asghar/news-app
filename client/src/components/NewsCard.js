@@ -81,7 +81,6 @@ function NewsCard({article}) {
           <img src={article.urlToImage || "./newsfeed.png"} className={classes.newsImage} alt="newsImage" />
         </a>
       </div>
-      
     </Paper>
   )
 }

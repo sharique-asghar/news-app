@@ -18,15 +18,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SelectedListItem({list, selectedIndex, handleCategoryClick}) {
+export default function SelectedListItem({list, title, selectedIndex, handleCategoryClick}) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Typography variant="h6" component="h6" className={classes.listTitle}>Category</Typography>
+      <Typography variant="h6" component="h6" className={classes.listTitle}>{title}</Typography>
       <Divider />
-      {list?.category?.length ? 
-        list.category.map((item) => (
+      {list?.length ? 
+        list.map((item) => (
           <List component="nav" aria-label="list" key={item.id}>
             <ListItem
               button

@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Navbar searchValue={searchValue} handleSearch={handleSearchValue} />
-      <NewsFeedLayout searchValue={valueToSearch} newsType="anything" />
+      <NewsFeedLayout searchValue={valueToSearch} />
     </>
   )
 }
