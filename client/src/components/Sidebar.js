@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     },
     height: "auto"
   },
+  listClass: {
+    borderRadius: "8px"
+  }
 }));
 
 
@@ -21,7 +24,8 @@ function Sidebar(props) {
   const listProps = {
     ...props,
     list: sidebarCategoryList.category,
-    title: "Category"
+    title: "Category",
+    className: classes.listClass
   }
   return (
     <div className={classes.sidebar}>

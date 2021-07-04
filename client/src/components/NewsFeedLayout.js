@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     columnGap: "1rem",
     [theme.breakpoints.up('sm')]: {
       justifyContent: "space-between",
-      padding: "0 5%"
+      padding: "0 5% 0 0"
     },
     marginTop: "4rem"
   }

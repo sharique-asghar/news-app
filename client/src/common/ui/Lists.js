@@ -18,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SelectedListItem({list, title, selectedIndex, handleCategoryClick}) {
+export default function SelectedListItem({list, title, selectedIndex, handleCategoryClick, className}) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} ${className}`}>
       <Typography variant="h6" component="h6" className={classes.listTitle}>{title}</Typography>
       <Divider />
       {list?.length ? 
