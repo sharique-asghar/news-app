@@ -13,17 +13,18 @@ const useStyles = makeStyles((theme) => ({
       padding: "2rem"
     },
     maxWidth: "100%",
-    height: "100vh",
     boxSizing: "border-box"
   },
   pageContent: {
     maxWidth: "100%",
     display: "flex",
     justifyContent: "flex-start",
+    columnGap: "1rem",
     [theme.breakpoints.up('sm')]: {
       justifyContent: "space-between",
       padding: "0 5%"
     },
+    marginTop: "4rem"
   }
 }));
 

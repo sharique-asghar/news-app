@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import UiSkelton from '../common/ui/Skelton';
 import { makeStyles } from '@material-ui/core/styles';
 import { getTopHeadlines } from '../services/news';
+import NewsCard from './NewsCard';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -11,20 +12,20 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     maxWidth: "100%",
     [theme.breakpoints.up('sm')]: {
-      flexGrow: "3"
+      flexGrow: "3",
+      maxWidth: "75%"
     }
   },
   feedContainer: {
     marginTop: "0.75rem",
-    padding: "10px",
-    maxWidth: "100%",
-    display: "flex"
   }
 }));
 
 function NewsFeed() {
   const classes = useStyles();
   const [country, setCountry] = useState("gb");
+  const [showSkelton, setShowSkelton] = useState(false);
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const getCountryTopHeadlines = async () => {
@@ -34,6 +35,7 @@ function NewsFeed() {
         }
         const result = await getTopHeadlines(params);
         console.log(result);
+        setData(result.articles);
       } catch (err) {
         console.log(err.message);
       }
@@ -45,9 +47,21 @@ function NewsFeed() {
   return (
     <div className={classes.main}>
       <Typography variant="h6" component="h6">Headlines</Typography>
-      <Paper variant="outlined" className={classes.feedContainer}>
-        Main
-      </Paper>
+      <div className={classes.feedContainer}>
+        {data?.length ? data.map((article) => (
+          <NewsCard article={article} key={article.title} />
+        ))
+        :
+        <div>
+          Sorry, we weren't able to load your feed. Refresh, to try again.
+        </div>
+      }
+      </div>
+      {showSkelton &&
+        <UiSkelton
+          type={showSkelton}
+        />
+      }
     </div>
   )
 }
