@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# This repository is meant for NEWS APP utilizing News Api Service (newsorg.api)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Start running the app by following the below steps:
 
-## Available Scripts
+To Run the app in the development mode:
+1. Run `npm install` to install all dependencies
+2. Create .env file (Run `touch .env`) in project root directory and add API_KEY and NODE_ENV in the form of        NAME=VALUE
+3. Run `npm run dev` to start the app
+4. Open [http://localhost:8000] to see server running
+5. Open [http://localhost:3001] to view client running in the browser.
 
-In the project directory, you can run:
+# To install all modules
 
-### `yarn start`
+Run `npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# On missing module dependencies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Run `npm install`
+___
 
-### `yarn test`
+# On developement machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run below command to start only client:
+`npm run client`
+* Note: client will run on the port 3001
+___
 
-### `yarn build`
+Run below command to start only server:
+`npm run server`
+* Note: server will run on the port 8000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# On production machine:
+Run `npm run build`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Config changes
+___
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+URL configs are available in
 
-### `yarn eject`
+Config Folder: `server/config`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+PROD config:
+`server/config/prod.config.js`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+DEV config:
+`server/config/dev.config.js`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+___
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Tech stack used
 
-## Learn More
+* React (Using CRA) - client
+* Express - server
+* Material UI - common components and styling
+* Sass - style
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Application structure
+___
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# public 
+    -- index.html
+# src
+    -- common
+        -- ui
+            -- Layout.js
+            -- Lists.js
+            -- Skelton.js
+            -- Toast.js
+            -- Styles.scss
+    -- component
+        -- Home.js
+        -- Navbar.js
+        -- NewsCard.js
+        -- NewsFeedLayout.js
+        -- NewsFeed.js
+        -- NotFound.js
+        -- SideBar.js
+    -- services
+        -- news.js
+    -- utils
+        -- api.js
+        -- apiHandler.js
+        -- constants.js
+        -- function.js
+    -- config.js
+    -- index.js
+    -- index.scss
+    -- App.js
+# server
+    -- config
+        -- dev.js
+        -- prod.js
+        -- test.js
+        -- index.js
+    -- controllers
+        -- newsController.js
+    -- utils
+        -- apiHandler.js
+        -- helpers.js
+        -- tracer.js
+    -- index.js
+    -- routes.js
+# .env
+# .gitignore
+#  README.md
+#  package.json
+#  log4j.json

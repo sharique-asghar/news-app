@@ -44,7 +44,7 @@
     "server": "nodemon server/index.js",
     "client": "PORT=3001 react-scripts start",
     "dev": "concurrently 'npm run server' 'npm run client'",
-    "build": "react-scripts build"
+    "build": "npm install && react-scripts build"
   },
   "eslintConfig": {
     "extends": [
