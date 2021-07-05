@@ -3,7 +3,7 @@ const productionConfig = require('./prod');
 const stagingConfig = require('./test');
 const devConfig = require('./dev');
 require("dotenv").config();
-const {getCompleteUrlConfig} = require('../utils/helpers');
+const { getCompleteUrlConfig } = require('../utils/helpers');
 
 const NODE_ENV = process.env.NODE_ENV;
 const BASE_URL = "https://newsapi.org";

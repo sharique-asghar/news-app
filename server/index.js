@@ -15,7 +15,7 @@ app.use(log4js.connectLogger(log4js.getLogger("http"), {
 }));
 
 if (isProd) {
-  app.use(express.static(path.resolve(__dirname, '../client/build')));
+  app.use(express.static(path.resolve(__dirname, './build')));
 }
 
 app.use('/', routes);
