@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "1",
     flexDirection: "column",
     maxWidth: "100%",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       flexGrow: "3",
       maxWidth: "75%"
     }

@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-start",
     columnGap: "1rem",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       justifyContent: "space-between",
-      padding: "0 5% 0 0"
+      padding: "0 10% 0 0"
     },
     marginTop: "4rem"
   }

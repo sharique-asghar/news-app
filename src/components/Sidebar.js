@@ -7,18 +7,18 @@ import { sidebarCategoryList } from '../utils/constants';
 const useStyles = makeStyles((theme) => ({
   sidebar: {
     display: "none",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: "flex",
       flexGrow: "1"
     },
-    height: "auto"
+    height: "100vh"
   },
   listClass: {
     borderRadius: "8px"
   },
   drawer: {
     width: "250px",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: "none"
     },
   }

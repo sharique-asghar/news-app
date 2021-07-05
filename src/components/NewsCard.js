@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   titleAndSourceContainer: {
     maxWidth: "70%",
     flexGrow: "3",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       maxWidth: "80%",
     },
   },
