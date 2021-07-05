@@ -4,11 +4,6 @@ export const API_CONSTANTS = {
 }
 
 export const sidebarCategoryList = {
-  // country: [
-  //   { id: 0, title: "United Kingdom", code: "gb" },
-  //   { id: 1, title: "United States", code: "us" },
-  //   { id: 2, title: "India", code: "in" }
-  // ],
   category: [
     { id: 0, title: "Business", value: "business" },
     { id: 1, title: "Entertainment", value: "entertainment" },
