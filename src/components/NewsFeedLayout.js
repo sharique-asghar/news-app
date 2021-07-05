@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     display: "flex",
     justifyContent: "flex-start",
-    columnGap: "1rem",
     [theme.breakpoints.up('md')]: {
       justifyContent: "space-between",
-      padding: "0 10% 0 0"
+      padding: "0 10% 0 0",
+      columnGap: "1rem",
     },
     marginTop: "4rem"
   }

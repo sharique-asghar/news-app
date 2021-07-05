@@ -9,7 +9,11 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.up('md')]: {
       display: "flex",
-      flexGrow: "1"
+      flexGrow: "1",
+      position: "fixed",
+      left: "2rem",
+      top: "6rem",
+      width: "20%"
     },
     height: "100vh"
   },
@@ -36,21 +40,23 @@ function Sidebar(props) {
   }
 
   return (
+    <>
     <div className={classes.sidebar}>
       <Lists {...listProps} />
-      <div 
-        role="presentation"
-        onClick={(e) => handleSidebarOpening(e, false)}
-        onKeyDown={(e) => handleSidebarOpening(e, false)}
-      >
-        <Drawer 
-          open={isSidebarOpen} 
-          onClose={(e) => handleSidebarOpening(e, false)}
-        >
-          <Lists {...listProps} />
-        </Drawer>
-      </div>
     </div>
+    <div 
+      role="presentation"
+      onClick={(e) => handleSidebarOpening(e, false)}
+      onKeyDown={(e) => handleSidebarOpening(e, false)}
+    >
+      <Drawer 
+        open={isSidebarOpen} 
+        onClose={(e) => handleSidebarOpening(e, false)}
+      >
+        <Lists {...listProps} />
+      </Drawer>
+    </div>
+    </>
   )
 }
 
