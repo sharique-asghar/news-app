@@ -7,7 +7,6 @@ module.exports = {
     try {
       let output = "\n";
       output += `URL: ${decodeURI(url)} \n`;
-      output += `Method: ${json.method} \n`;
 
       // Keeping outgoing log on console too - without body
 

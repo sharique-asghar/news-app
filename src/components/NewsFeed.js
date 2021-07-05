@@ -4,6 +4,7 @@ import UiSkelton from '../common/ui/Skelton';
 import { makeStyles } from '@material-ui/core/styles';
 import { getAnyNews, getTopHeadlines } from '../services/news';
 import NewsCard from './NewsCard';
+import Toast from '../common/ui/Toast';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 function NewsFeed(props) {
   const classes = useStyles();
-  const [country, setCountry] = useState("gb");
+  const [country] = useState("gb");
   const [showSkelton, setShowSkelton] = useState(false);
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("Top Headlines");
@@ -45,9 +46,9 @@ function NewsFeed(props) {
           setTitle(props.category)
         }
         const result = await getTopHeadlines(params);
-        console.log(result);
         setData(result.articles);
       } catch (err) {
+        Toast(err.message, "error");
         console.log(err.message);
       } finally {
         setShowSkelton(false);
@@ -61,9 +62,9 @@ function NewsFeed(props) {
           q: props.searchValue,
         }
         const result = await getAnyNews(params);
-        console.log(result);
         setData(result.articles);
       } catch (err) {
+        Toast(err.message, "error");
         console.log(err.message);
       } finally {
         setShowSkelton(false);
