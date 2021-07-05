@@ -11,10 +11,14 @@ const Home = () => {
     const value = event?.target?.value || "";
     setSearchValue(value);
     if (event.key === 'Enter') {
-      setValueToSearch(value);
+      handleValueToSearch(value);
       setSearchValue("");
     }
   };
+
+  const handleValueToSearch = (value) => {
+    setValueToSearch(value);
+  }
 
   const handleSidebarOpening = (event, open) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -33,7 +37,8 @@ const Home = () => {
   const newsLayoutProps = {
     searchValue: valueToSearch,
     isSidebarOpen,
-    handleSidebarOpening
+    handleSidebarOpening,
+    handleValueToSearch
   }
 
   return (

@@ -33,7 +33,7 @@ function NewsFeed(props) {
   const [showSkelton, setShowSkelton] = useState(false);
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("Top Headlines");
-  const newsType = props.newsType || "headline";
+  const newsType = props.newsType;
 
   useEffect(() => {
     const getCountryTopHeadlines = async () => {

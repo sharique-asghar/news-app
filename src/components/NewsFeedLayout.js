@@ -31,10 +31,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewsFeedLayout(props) {
   const classes = useStyles();
-  const { searchValue } = props;
+  const { searchValue, handleValueToSearch } = props;
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [category, setCategory] = useState("");
-  const [newsType, setNewsType] = useState((searchValue && "anything") || "")
+  const [newsType, setNewsType] = useState("headline");
+
+  // avoid double api call after calling api with category and then searching
+  if (newsType === "category" && searchValue) {
+    setNewsType("");
+  }
 
   useEffect(() => {
     if (searchValue) {
@@ -48,6 +53,7 @@ export default function NewsFeedLayout(props) {
     setSelectedIndex(item.id);
     setCategory(item.value);
     setNewsType("category");
+    handleValueToSearch("");
   };
 
   const sidebarProps = {
