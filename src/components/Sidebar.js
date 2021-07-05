@@ -32,6 +32,10 @@ function Sidebar(props) {
   const classes = useStyles();
   const { isSidebarOpen, handleSidebarOpening } = props;
 
+  const handleSidebarDrawerClosing = (event) => {
+    handleSidebarOpening(event, false)
+  }
+
   const listProps = {
     ...props,
     list: sidebarCategoryList.category,
@@ -41,21 +45,21 @@ function Sidebar(props) {
 
   return (
     <>
-    <div className={classes.sidebar}>
-      <Lists {...listProps} />
-    </div>
-    <div 
-      role="presentation"
-      onClick={(e) => handleSidebarOpening(e, false)}
-      onKeyDown={(e) => handleSidebarOpening(e, false)}
-    >
-      <Drawer 
-        open={isSidebarOpen} 
-        onClose={(e) => handleSidebarOpening(e, false)}
-      >
+      <div className={classes.sidebar}>
         <Lists {...listProps} />
-      </Drawer>
-    </div>
+      </div>
+      <div 
+        role="presentation"
+        onClick={handleSidebarDrawerClosing}
+        onKeyDown={handleSidebarDrawerClosing}
+      >
+        <Drawer 
+          open={isSidebarOpen} 
+          onClose={handleSidebarDrawerClosing}
+        >
+          <Lists {...listProps} />
+        </Drawer>
+      </div>
     </>
   )
 }
